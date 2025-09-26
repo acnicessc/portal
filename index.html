@@ -286,7 +286,16 @@
        ====================== -->
   <section class="container view" data-view="gateway" aria-labelledby="navGateway">
     <div class="panel" aria-label="Gateway routes and policies">
-      <h2>Gateway</h2> <span class="muted">For platform operations - health checks, policy enforcement (size/timeouts/concurrency), quotas, key management, route management, etc. </span>
+     
+<br>
+<section class="inset">
+  <h2 style="margin:0;color:var(--gc-blue)">Gateway</h2>
+  <p class="muted">
+   For platform operations - health checks, policy enforcement (size/timeouts/concurrency), quotas, key management, route management, etc. 
+  </p>
+</section>
+
+
 <div class="hr"></div>
 <h3>Routes</h3>
       <div class="section-body stack">
@@ -415,9 +424,12 @@
     <!-- LEFT: Profile -->
     <aside class="panel" aria-label="Your profile">
 <br>
-	<h2 style="margin:0;color:var(--gc-blue)">My Services </h2> <br>
-<span class="muted">Profile based (signed-in identity, department, roles) and quick links, service cards with summaries for tools, models and software the user can access (including relevant info for developers when applicable. </span>
-
+<section class="inset">
+  <h2 style="margin:0;color:var(--gc-blue)">My Services</h2>
+  <p class="muted">
+    Profile-based (signed-in identity, department, roles) with quick links and service cards for tools/models the user can access (including developer info when applicable).
+  </p>
+</section>
  <div class="hr"></div>
       <h3>Profile</h3>
       <div class="section-body" style="display:flex;flex-direction:column;gap:12px">
@@ -607,7 +619,7 @@
        ====================== -->
   <section class="container view" data-view="requests" aria-labelledby="navRequests" aria-label="My requests">
     <div class="content">
-      <h2 style="margin-top:0">My Requests</h2>
+      <h2 style="margin:0;color:var(--gc-blue)">My Requests</h2>
       <p class="muted" id="requestsSubtitle">View status and details of submitted access requests.</p>
       <table class="table" aria-label="Requests table">
         <thead>
@@ -819,13 +831,17 @@ console.log(data.choices[0].message.content);
 <section class="container view" data-view="governance" aria-labelledby="navGovernance">
   <header class="page-head">
     <div class="row" style="justify-content:space-between;align-items:center;gap:12px">
+
       <div>
-        <h1 style="margin:0">&nbsp;Governance</h1>
-        <p class="muted" style="margin:.25rem 0 0">
-          &nbsp;Guardrails, roles, and routines that let departments adopt AI quickly—without compromising privacy, security, or fiscal stewardship.
-        </p>
-      </div>
- 
+
+<section class="inset">
+  <h2 class="site-whitesubtitle">Governance</h2>
+  <p class="muted">
+   Guardrails, roles, and routines that let departments adopt AI quickly—without compromising privacy, security, or fiscal stewardship.
+  </p>
+</section>
+
+      </div> 
     </div>
 
     <nav class="subnav" aria-label="Governance sections" style="margin-top:12px">
@@ -1059,8 +1075,14 @@ console.log(data.choices[0].message.content);
   <section class="container view" data-view="usage" aria-labelledby="navUsage">
     <!-- Left: Filters -->
     <aside class="panel" aria-label="Usage filters"> <br>
-<h2 style="margin:0;color:var(--gc-blue)">&nbsp;Usage </h2> <br>
-<span class="muted">&nbsp;Operational reporting; performance, utilization, FinOps dashboards, threshold alerts and exports. </span>
+
+<section class="inset">
+  <h2 style="margin:0;color:var(--gc-blue)">Usage</h2>
+  <p class="muted">
+   Operational reporting; performance, utilization, FinOps dashboards, threshold alerts and exports.
+  </p>
+</section>
+
 
  <div class="hr"></div>
 
@@ -1294,9 +1316,13 @@ console.log(data.choices[0].message.content);
   <header class="page-head">
     <div class="row" style="justify-content:space-between;align-items:center;gap:12px">
       <div>
-        <h1 style="margin:0">Docs</h1>
-        <p class="muted" style="margin:.25rem 0 0">Developer quickstarts, endpoints, policies, and examples for the AI Marketplace (mock).</p>
-      </div>
+<section class="inset">
+  <h2 class="site-whitesubtitle">Docs</h2>
+  <p class="muted">
+   Developer quickstarts, endpoints, policies, and examples for the AI Marketplace (mock)
+  </p>
+</section>
+</div>
  
     </div>
 
