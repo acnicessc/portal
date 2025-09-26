@@ -264,4 +264,4 @@ footer .wrap{max-width:1200px;margin:0 auto;padding:18px 20px;color:var(--muted)
 #catalogGrid[data-mode="list"] .actions{
   margin-left:auto; display:flex; gap:8px; align-items:center;
 }
-
+html { scrollbar-gutter: stable both-edges; }
