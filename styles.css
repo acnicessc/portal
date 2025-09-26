@@ -1,0 +1,251 @@
+:root{
+  --gc-blue:#26374a; --gc-blue-2:#335075; --gc-red:#d3080c; --gc-light:#f5f7fa;
+  --gc-panel:#ffffff; --gc-text:#1a1a1a; --muted:#5b6b7a; --line:#e3e8ef; --accent:#1472ff;
+  --ok:#1b873f; --warn:#b35c00; --bad:#a10000; --chip:#eef2f7; --chip-text:#2c3e50;
+  --shadow:0 6px 20px rgba(0,0,0,0.08); --radius:14px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;color:var(--gc-text);background:var(--gc-light)}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip-link:focus{position:static;width:auto;height:auto;background:#fff;padding:8px;border:2px solid var(--gc-blue)}
+
+
+/* BEGIN BUTTON STYLES */
+/* smooth transitions for all buttons */
+.btn { transition: background-color .10s ease, color .10s ease, border-color .10s ease, box-shadow .10s ease, transform .01s ease; }
+
+.btn:hover,
+.btn:focus-visible {
+  background: var(--gc-blue, #26374a);
+  color: #fff;
+}
+.btn.ghost:hover,
+.btn.ghost:focus-visible {
+  background: rgba(38,55,74,.08);
+  color: var(--gc-blue, #26374a);
+  border-color: var(--gc-blue, #26374a);
+}
+
+/* PRIMARY button base */
+.btn.primary{
+  background: var(--gc-blue, #26374a);
+  color:#fff;
+  border:1px solid transparent;
+}
+
+/* hover + keyboard focus */
+.btn.primary:hover,
+.btn.primary:focus-visible{
+  background:#1f2e40;           /* slightly darker than #26374a */
+  box-shadow:0 0 0 3px rgba(38,55,74,.25); /* subtle focus ring */
+  outline:0;
+}
+
+/* pressed state */
+.btn.primary:active{
+  background:#16202e;           /* a bit darker again */
+  transform:translateY(1px);
+}
+
+/* disabled */
+.btn.primary[disabled],
+.btn.primary[aria-disabled="true"]{
+  opacity:.6;
+  cursor:not-allowed;
+  box-shadow:none;
+}
+
+/* reduced motion respect */
+@media (prefers-reduced-motion: reduce){
+  .btn{ transition:none; }
+}
+/* END BUTTON STYLES */
+
+/* Banner */
+.gc-banner{background:#fff;border-bottom:1px solid var(--line)}
+.gc-banner .wrap{max-width:1200px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:16px}
+.wordmark{font-weight:700;letter-spacing:0.3px;color:var(--gc-blue)}
+.wordmark .leaf{color:var(--gc-red);font-weight:800}
+.biling{margin-left:auto;display:flex;gap:12px}
+.biling a{font-weight:600;color:var(--gc-blue)}
+.pill{background:#edf4ff;color:#204a87;border-radius:999px;padding:2px 8px;font-weight:700;font-size:0.75rem;border:1px solid #d6e4ff}
+
+/* Header / Nav */
+header{background:var(--gc-blue);color:#fff;position:sticky;top:0;z-index:10}
+header .wrap{max-width:1200px;margin:0 auto;padding:16px 20px;display:flex;align-items:center;gap:18px}
+.site-title{font-size:1.25rem;font-weight:700}
+nav{margin-left:auto;display:flex;gap:14px}
+nav a{color:#eaf1f8;padding:8px 10px;border-radius:8px}
+nav a.active, nav a:hover{background:var(--gc-blue-2)}
+.search{display:flex;align-items:center;gap:8px;margin-left:16px}
+.search input{padding:10px 12px;border-radius:10px;border:1px solid #2f4660;background:#1f2f40;color:#f0f6ff;min-width:260px}
+.search button{background:#fff;color:var(--gc-blue);border:none;border-radius:10px;padding:10px 12px;font-weight:600;cursor:pointer}
+
+/* Panels / Cards / Bits (shared) */
+.container{max-width:1200px;margin:22px auto;padding:0 20px;display:grid;grid-template-columns:280px 1fr;gap:22px}
+@media (max-width:980px){.container{grid-template-columns:1fr}}
+.panel{background:var(--gc-panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.panel h3{margin:0;padding:14px 16px;border-bottom:1px solid var(--line);font-size:1rem;color:var(--gc-blue)}
+.section-body{padding:14px 16px}
+.filter-body{padding:14px 16px;display:flex;flex-direction:column;gap:14px}
+.fieldset{display:flex;flex-direction:column;gap:10px}
+.fieldset label{font-size:0.95rem;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--chip);color:var(--chip-text);border:1px solid #d8e1ea;border-radius:999px;padding:6px 10px;font-size:0.85rem;cursor:pointer}
+.chip.small{padding:4px 8px;font-size:.8rem}
+.chip.active{outline:2px solid var(--gc-blue)}
+.btn{border:none;border-radius:10px;padding:10px 12px;font-weight:700;cursor:pointer}
+.btn.primary{background:var(--gc-blue);color:#fff}
+.btn.ghost{background:#fff;border:1px solid var(--line);color:var(--gc-blue)}
+.btn.link{background:transparent;border:none;color:var(--accent);padding:0}
+.btn.warn{background:#fff;border:1px solid #ffd09a;color:#b35c00}
+.kbd{font-family:ui-monospace,SFMono-Regular,Consolas,Monaco,Menlo,monospace;background:#f6f8fa;border:1px solid #e2e6ea;border-radius:8px;padding:2px 6px}
+.meta{color:var(--muted);font-size:0.9rem}
+.tag{background:#f1f5ff;color:#1b3a6f;border:1px solid #d6e4ff;border-radius:999px;padding:4px 8px;font-size:0.8rem}
+.pill.badge{display:inline-flex;gap:6px;align-items:center}
+.dot{width:8px;height:8px;border-radius:50%}
+.dot.ok{background:var(--ok)} .dot.warn{background:var(--warn)} .dot.bad{background:var(--bad)}
+.hr{height:1px;background:var(--line);margin:10px 0}
+.muted{color:var(--muted)}
+.kv{display:grid;grid-template-columns:140px 1fr;gap:8px 12px;align-items:center}
+.kv .k{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media (max-width:1024px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.grid{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);display:flex;flex-direction:column}
+.card .thumb{height:120px;background:linear-gradient(135deg,#e9eef5,#f8fbff);border-bottom:1px solid var(--line);border-top-left-radius:var(--radius);border-top-right-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-weight:800;color:#4b6b88}
+.card .body{padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.actions{margin-top:auto;padding:14px 16px;border-top:1px solid var(--line);display:flex;gap:8px}
+
+/* Views */
+.view{display:none}
+.view.active{display:block}
+.container.view.active[data-view="catalog"]{display:grid}
+.container.view.active:not([data-view="catalog"]){display:block}
+
+/* Gateway/My Services extras */
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.stack{display:flex;flex-direction:column;gap:8px}
+.field{display:flex;flex-direction:column;gap:6px}
+.input, select, textarea{padding:10px;border:1px solid var(--line);border-radius:10px;background:#fff}
+textarea{min-height:120px;resize:vertical}
+.table{width:100%;border-collapse:collapse}
+.table th,.table td{padding:10px;border-bottom:1px solid var(--line);text-align:left}
+.table th{color:var(--muted);font-weight:600}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:2px 8px;border-radius:999px;border:1px solid var(--line);font-size:.8rem}
+.switch{position:relative;display:inline-block;width:42px;height:24px}
+.switch input{opacity:0;width:0;height:0}
+.slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background:#cfd8e3;transition:.2s;border-radius:999px}
+.slider:before{position:absolute;content:"";height:18px;width:18px;left:3px;bottom:3px;background:white;transition:.2s;border-radius:50%}
+.switch input:checked + .slider{background:#3b82f6}
+.switch input:checked + .slider:before{transform:translateX(18px)}
+
+/* Drawer for My Services keys */
+.drawer{position:fixed;right:0;top:0;height:100%;width:420px;background:#fff;border-left:1px solid var(--line);box-shadow:-8px 0 24px rgba(0,0,0,.08);transform:translateX(100%);transition:.25s;z-index:30}
+.drawer.open{transform:translateX(0)}
+.drawer header{display:flex;align-items:center;justify-content:space-between;padding:16px;border-bottom:1px solid var(--line)}
+.drawer .wrap{padding:16px;display:flex;flex-direction:column;gap:12px}
+.secret{font-family:ui-monospace;letter-spacing:1px;padding:8px 10px;border:1px dashed #d9e0e7;border-radius:8px;background:#fafcff}
+
+/* Details/Request/Requests helpers */
+.content{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.steps{display:flex;gap:8px;flex-wrap:wrap}
+.step{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 10px;font-size:0.85rem}
+.step.done{background:#edf7f1;border-color:#cfe7d8}
+
+/* KPI strip + charts (Usage) */
+.kpi-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}
+@media (max-width:900px){.kpi-strip{grid-template-columns:repeat(2,1fr)}}
+.kpi{border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:6px}
+.kpi .cap{font-size:.8rem;color:var(--muted)}
+.kpi .val{font-size:1.4rem;font-weight:800;color:var(--gc-blue)}
+.kpi .delta{font-size:.8rem}
+.kpi .status{margin-left:auto}
+.status-pill{border:1px solid var(--line);border-radius:999px;padding:2px 8px;font-size:.75rem}
+.status-pill.bad{color:#a10000;border-color:#ffd0d0;background:#fff0f0}
+.status-pill.warn{color:#b35c00;border-color:#ffe0b3;background:#fff7e6}
+.chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.chart-card{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:10px}
+.chart-title{font-weight:700;color:var(--gc-blue);margin-bottom:6px}
+.canvas{width:100%;display:block;border:1px dashed #e8edf3;border-radius:8px;background:#fcfdff}
+
+/* Governance grid */
+.gov-grid{grid-template-columns:repeat(3,1fr)}
+@media (max-width:1024px){.gov-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.gov-grid{grid-template-columns:1fr}}
+
+footer{margin-top:30px;background:#fff;border-top:1px solid var(--line)}
+footer .wrap{max-width:1200px;margin:0 auto;padding:18px 20px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+/* Fix buttons on dark background (governance specifically */
+/* On-dark surface helpers (e.g., Governance header) */
+.view[data-view="governance"] .page-head {
+  /* if you already set a blue bg for page-head, keep it; this is just here in case */
+  background: var(--gc-blue, #26374a);
+  color: #fff;
+}
+
+/* Make ghost buttons visible on dark */
+.view[data-view="governance"] .page-head .btn.ghost {
+  color: #fff;
+  border-color: rgba(255,255,255,.6);
+  background: transparent;
+  transition: background-color .15s ease, color .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+.view[data-view="governance"] .page-head .btn.ghost:hover,
+.view[data-view="governance"] .page-head .btn.ghost:focus-visible{
+  background: rgba(255,255,255,.12);
+  border-color: #fff;
+  color: #fff;
+  box-shadow: 0 0 0 3px rgba(255,255,255,.25); /* accessible focus */
+}
+/* --- Catalog: view toggle (segmented buttons) --- */
+.segmented .btn.small{ padding:6px 10px; border-radius:6px; }
+.segmented .btn[aria-pressed="true"]{
+  background: var(--gc-blue, #26374a);
+  color:#fff;
+  border-color: transparent;
+}
+.segmented .btn{ transition: background-color .15s ease, color .15s ease, border-color .15s ease; }
+
+/* --- Catalog view modes --- */
+#catalogGrid[data-mode="cards"]{
+  display:grid; /* keeps your existing card grid */
+  /* your existing .grid rules will still apply */
+}
+#catalogGrid[data-mode="list"]{
+  display:block;
+}
+#catalogGrid[data-mode="list"] > .card{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  gap:12px;
+  margin:0 0 8px 0;
+  padding:10px 12px;
+}
+#catalogGrid[data-mode="list"] .thumb{
+  width:56px; height:56px; min-width:56px;
+  display:flex; align-items:center; justify-content:center;
+  font-weight:700;
+}
+#catalogGrid[data-mode="list"] .body{
+  display:flex; align-items:center; gap:10px; flex:1;
+}
+#catalogGrid[data-mode="list"] .body h3{ margin:0; font-size:1rem; }
+#catalogGrid[data-mode="list"] .body .pill.badge{ margin-right:6px; }
+#catalogGrid[data-mode="list"] .body .meta{
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:45ch;
+}
+#catalogGrid[data-mode="list"] .body p,
+#catalogGrid[data-mode="list"] .chips{
+  display:none; /* single-line: hide long desc and tags */
+}
+#catalogGrid[data-mode="list"] .actions{
+  margin-left:auto; display:flex; gap:8px; align-items:center;
+}
+

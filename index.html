@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Marketplace — Government of Canada</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Banner -->
+  <div class="gc-banner" role="banner">
+    <div class="wrap">
+      <div class="wordmark" aria-label="Government of Canada">Government of Canada</span></div>
+      <span class="pill" title="Internal prototype">Prototype</span>
+      <div class="biling" aria-label="Language selection">
+        <a href="#" aria-label="English selected"><strong>EN</strong></a>
+        <span aria-hidden="true">|</span>
+        <a href="#">FR</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="wrap">
+      <div class="site-title">AI Marketplace</div>
+      <nav aria-label="Primary">
+        <a id="navCatalog" class="active" href="#" data-route="catalog">Catalog</a>
+        <a id="navGateway" href="#" data-route="gateway">Gateway</a>
+        <a id="navMyServices" href="#" data-route="myservices">My Services</a>
+        <a id="navRequests" href="#" data-route="requests">Requests</a>
+        <a id="navGovernance" href="#" data-route="governance">Governance</a>
+        <a id="navUsage" href="#" data-route="usage">Usage</a>
+        <a href="#" data-route="docs">Docs</a>
+      </nav>
+      <form class="search" role="search" aria-label="Search models" onsubmit="return false;">
+        <input id="searchInput" type="search" placeholder="Search models, prompts, providers…" aria-label="Search" />
+        <button type="button" id="btnSearch">Search</button>
+      </form>
+    </div>
+  </header>
+
+  <!-- =========================
+       CATALOG
+       ========================= -->
+  <main id="main" class="container view active" data-view="catalog" aria-labelledby="navCatalog">
+    <aside class="panel" aria-label="Filters">
+      <h3>Filter & refine</h3>
+      <div class="filter-body">
+        <div class="fieldset"><label>Providers</label>
+          <div class="chips">
+            <button class="chip active" type="button">SSC</button>
+            <button class="chip" type="button">Cohere</button>
+            <button class="chip" type="button">Open Source</button>
+          </div>
+        </div>
+
+        <div class="fieldset"><label>Capabilities</label>
+          <div class="chips">
+            <button class="chip" type="button">NLP</button>
+            <button class="chip" type="button">Chat</button>
+            <button class="chip" type="button">Summarization</button>
+            <button class="chip" type="button">Embeddings</button>
+          </div>
+        </div>
+
+        <div class="fieldset"><label>Type</label>
+          <div class="chips">
+            <button class="chip active" type="button">Models</button>
+            <button class="chip" type="button">Prompts</button>
+            <button class="chip" type="button">Workflows</button>
+            <button class="chip" type="button">Use Cases</button>
+          </div>
+        </div>
+
+        <div class="fieldset"><label>Data Sensitivity</label>
+          <div class="chips">
+            <button class="chip" type="button">PBMM</button>
+            <button class="chip" type="button">Protected B</button>
+            <button class="chip" type="button">Unclassified</button>
+          </div>
+        </div>
+
+        <div class="row" style="margin-top:6px">
+          <button class="btn primary" type="button">Apply filters</button>
+          <button class="btn ghost" type="button">Reset</button>
+        </div>
+      </div>
+    </aside>
+
+    <section>
+      <div class="row" style="justify-content:space-between;align-items:center;margin-bottom:10px">
+        <h2 style="margin:0;color:var(--gc-blue)">Catalog</h2> <span class="muted">This is the landing page, listing available AI offerings in the marketplace with “at a glance” summary with the ability to filter, view details and request access.</span>
+        <div class="row">
+          <label for="sort" class="muted">Sort</label>
+          <select id="sort" name="sort" class="input" style="width:auto">
+            <option>Recommended</option>
+            <option>Recently updated</option>
+            <option>Most used</option>
+          </select>
+        </div>
+<div class="row" style="gap:6px;margin-left:10px">
+  <div class="segmented" role="group" aria-label="Catalog view">
+    <button id="viewCards" class="btn ghost small" aria-pressed="true" title="Card view">Cards</button>
+    <button id="viewList" class="btn ghost small" aria-pressed="false" title="Single-line list">List</button>
+  </div>
+</div>
+
+      </div>
+
+      <div id="catalogGrid" class="grid" data-mode="cards" role="list">
+        <!-- CANChat card -->
+        <article class="card" role="listitem">
+          <div class="thumb">CANCHAT</div>
+          <div class="body">
+            <div class="pill badge" title="Availability"><span class="dot ok"></span><span>Available</span></div>
+            <h3 style="margin:0">CANChat (SSC-Hosted)</h3>
+            <div class="meta">Provider: SSC · Deployment: Hosted · Sensitivity: Protected B (pilot)</div>
+            <p>Government-hosted conversational model with department-scoped isolation and audit logging.</p>
+            <div class="chips">
+              <span class="tag">Chat</span><span class="tag">Audit</span><span class="tag">Protected B</span>
+            </div>
+          </div>
+          <div class="actions">
+            <button class="btn primary" data-view-model="CANChat (SSC-Hosted)">View</button>
+            <button class="btn ghost" data-quick-request="CANChat (SSC-Hosted)">Quick request</button>
+          </div>
+        </article>
+
+        <!-- Cohere card -->
+        <article class="card" role="listitem">
+          <div class="thumb">COHERE</div>
+          <div class="body">
+            <div class="pill badge"><span class="dot ok"></span><span>Available</span></div>
+            <h3 style="margin:0">Cohere Command A</h3>
+            <div class="meta">Provider: Cohere · Deployment: API · Sensitivity: Unclassified/PBMM via proxy</div>
+            <p>Instruction-tuned LLM for summarization, RAG, and chat. English/French capable.</p>
+            <div class="chips">
+              <span class="tag">Chat</span><span class="tag">NLP</span><span class="tag">RAG</span>
+            </div>
+          </div>
+          <div class="actions">
+            <button class="btn primary" data-view-model="Cohere Command A">View</button>
+            <button class="btn ghost" data-quick-request="Cohere Command A">Quick request</button>
+          </div>
+        </article>
+
+        <!-- Prompt Library -->
+        <article class="card" role="listitem">
+          <div class="thumb">PROMPTS</div>
+          <div class="body">
+            <div class="pill badge"><span class="dot warn"></span><span>Curated</span></div>
+            <h3 style="margin:0">Prompt Library (MVP)</h3>
+            <div class="meta">Owner: SSC · Reuse: GC-wide · Status: Pilot</div>
+            <p>Reusable prompts for summarization, translation, classification. Peer-reviewed and tagged.</p>
+            <div class="chips">
+              <span class="tag">Templates</span><span class="tag">Bilingual</span><span class="tag">Reviewed</span>
+            </div>
+          </div>
+          <div class="actions">
+            <button class="btn primary" data-view-model="Prompt Library (MVP)">View</button>
+            <button class="btn ghost" data-quick-request="Prompt Library (MVP)">Quick request</button>
+          </div>
+        </article>
+<!-- AN Begin --> 
+<!-- ===== MORE CATALOG CARDS (drop-in) ===== -->
+
+<!-- CANEmbed (Embeddings, SSC-hosted) -->
+<article class="card" role="listitem">
+  <div class="thumb">EMBED</div>
+  <div class="body">
+    <div class="pill badge"><span class="dot ok"></span><span>Available</span></div>
+    <h3 style="margin:0">CANEmbed (SSC-Hosted Embeddings)</h3>
+    <div class="meta">Provider: SSC · Deployment: Hosted · Sensitivity: PBMM</div>
+    <p>High-throughput embeddings for search and RAG. Tuned for EN/FR public-sector content.</p>
+    <div class="chips">
+      <span class="tag">Embeddings</span><span class="tag">Search</span><span class="tag">RAG</span>
+    </div>
+  </div>
+  <div class="actions">
+    <button class="btn primary" data-view-model="CANEmbed (SSC-Hosted Embeddings)">View</button>
+    <button class="btn ghost" data-quick-request="CANEmbed (SSC-Hosted Embeddings)">Quick request</button>
+  </div>
+</article>
+
+<!-- Cohere ReRank (RAG reranker) -->
+<article class="card" role="listitem">
+  <div class="thumb">RERANK</div>
+  <div class="body">
+    <div class="pill badge"><span class="dot ok"></span><span>Available</span></div>
+    <h3 style="margin:0">Cohere ReRank</h3>
+    <div class="meta">Provider: Cohere · Deployment: API · Sensitivity: Unclassified/PBMM via proxy</div>
+    <p>Relevance re-ranking for retrieval pipelines; improves top-k precision for RAG and search.</p>
+    <div class="chips">
+      <span class="tag">RAG</span><span class="tag">Ranking</span><span class="tag">NLP</span>
+    </div>
+  </div>
+  <div class="actions">
+    <button class="btn primary" data-view-model="Cohere ReRank">View</button>
+    <button class="btn ghost" data-quick-request="Cohere ReRank">Quick request</button>
+  </div>
+</article>
+
+<!-- Mistral-7B Instruct (Hosted OSS) -->
+<article class="card" role="listitem">
+  <div class="thumb">OSS</div>
+  <div class="body">
+    <div class="pill badge"><span class="dot ok"></span><span>Pilot</span></div>
+    <h3 style="margin:0">Mistral-7B Instruct (Hosted)</h3>
+    <div class="meta">Provider: Open Source via SSC · Deployment: Hosted · Sensitivity: Unclassified/PBMM</div>
+    <p>Lightweight instruction-tuned model for chat and tooling. Great for pilot workloads.</p>
+    <div class="chips">
+      <span class="tag">Chat</span><span class="tag">NLP</span><span class="tag">Open Source</span>
+    </div>
+  </div>
+  <div class="actions">
+    <button class="btn primary" data-view-model="Mistral-7B Instruct (Hosted)">View</button>
+    <button class="btn ghost" data-quick-request="Mistral-7B Instruct (Hosted)">Quick request</button>
+  </div>
+</article>
+
+<!-- EN↔FR Translation (Prompt Pack) -->
+<article class="card" role="listitem">
+  <div class="thumb">PROMPTS</div>
+  <div class="body">
+    <div class="pill badge"><span class="dot warn"></span><span>Curated</span></div>
+    <h3 style="margin:0">EN↔FR Translation (Prompt Pack)</h3>
+    <div class="meta">Owner: SSC · Reuse: GC-wide · Status: Curated</div>
+    <p>Formal EN↔FR translation patterns with tone and register guidance for GC correspondence.</p>
+    <div class="chips">
+      <span class="tag">Prompts</span><span class="tag">Bilingual</span><span class="tag">Templates</span>
+    </div>
+  </div>
+  <div class="actions">
+    <button class="btn primary" data-view-model="EN↔FR Translation (Prompt Pack)">View</button>
+    <button class="btn ghost" data-quick-request="EN↔FR Translation (Prompt Pack)">Quick request</button>
+  </div>
+</article>
+
+<!-- Summarize → Cite (Prompt Template) -->
+<article class="card" role="listitem">
+  <div class="thumb">PROMPTS</div>
+  <div class="body">
+    <div class="pill badge"><span class="dot warn"></span><span>Curated</span></div>
+    <h3 style="margin:0">Summarize → Cite (Template)</h3>
+    <div class="meta">Owner: SSC · Reuse: GC-wide · Status: Pilot</div>
+    <p>For evidence-based summaries: enforces citation extraction and coverage targets for RAG.</p>
+    <div class="chips">
+      <span class="tag">Prompts</span><span class="tag">RAG</span><span class="tag">Summarization</span>
+    </div>
+  </div>
+  <div class="actions">
+    <button class="btn primary" data-view-model="Summarize → Cite (Template)">View</button>
+    <button class="btn ghost" data-quick-request="Summarize → Cite (Template)">Quick request</button>
+  </div>
+</article>
+
+<!-- Contact Centre Triage (Use Case) -->
+<article class="card" role="listitem">
+  <div class="thumb">USE CASE</div>
+  <div class="body">
+    <div class="pill badge"><span class="dot warn"></span><span>Candidate</span></div>
+    <h3 style="margin:0">Contact Centre Triage (Workflow)</h3>
+    <div class="meta">Owner: ESDC · Status: Candidate</div>
+    <p>Intent detection + summarization + RAG hand-off for high-volume citizen inquiries.</p>
+    <div class="chips">
+      <span class="tag">Workflows</span><span class="tag">NLP</span><span class="tag">RAG</span>
+    </div>
+  </div>
+  <div class="actions">
+    <button class="btn primary" data-view-model="Contact Centre Triage (Workflow)">View</button>
+    <button class="btn ghost" data-quick-request="Contact Centre Triage (Workflow)">Quick request</button>
+  </div>
+</article>
+<!-- ===== /MORE CATALOG CARDS ===== -->
+
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================
+       GATEWAY
+       ====================== -->
+  <section class="container view" data-view="gateway" aria-labelledby="navGateway">
+    <div class="panel" aria-label="Gateway routes and policies">
+      <h2>Gateway</h2> <span class="muted">For platform operations - health checks, policy enforcement (size/timeouts/concurrency), quotas, key management, route management, etc. </span>
+<div class="hr"></div>
+<h3>Routes</h3>
+      <div class="section-body stack">
+        <div class="card stack">
+          <div class="row" style="justify-content:space-between">
+            <div>
+              <div style="font-weight:700;color:var(--gc-blue)">Internal Model Route</div>
+              <div class="muted">CANChat → internal service</div>
+            </div>
+            <label class="switch" title="Enable route">
+              <input type="checkbox" id="routeInternal" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="kv" style="margin-top:8px">
+            <div class="k">Path</div><div><span class="kbd">/v1/canchat/chat</span></div>
+            <div class="k">Target</div><div class="muted">canchat-svc.internal.cluster:8000</div>
+            <div class="k">Health</div><div class="badge"><span class="dot ok"></span>Healthy</div>
+          </div>
+        </div>
+
+        <div class="card stack">
+          <div class="row" style="justify-content:space-between">
+            <div>
+              <div style="font-weight:700;color:var(--gc-blue)">External Provider Route</div>
+              <div class="muted">Proxy → external provider</div>
+            </div>
+            <label class="switch" title="Enable route">
+              <input type="checkbox" id="routeExternal" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="kv" style="margin-top:8px">
+            <div class="k">Path</div><div><span class="kbd">/v1/provider/chat</span></div>
+            <div class="k">Target</div><div class="muted">ssc-proxy.internal:443 → provider</div>
+            <div class="k">Health</div><div class="badge"><span class="dot ok"></span>Healthy</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hr"></div>
+
+      <h3>Policies & Limits</h3>
+      <div class="section-body stack">
+        <div class="field">
+          <label>Request size limit</label>
+          <div class="row"><input class="input" id="limitSize" style="width:140px" value="1 MB"><span class="muted">Protects GPUs and link</span></div>
+        </div>
+        <div class="field">
+          <label>Request timeout</label>
+          <div class="row"><input class="input" id="limitTimeout" style="width:140px" value="60 s"><span class="muted">Edge timeout</span></div>
+        </div>
+        <div class="field">
+          <label>Concurrency cap</label>
+          <div class="row"><input class="input" id="limitConc" style="width:140px" value="50"><span class="muted">In-flight requests per route</span></div>
+        </div>
+        <button class="btn ghost" id="btnSavePolicies">Save policies</button>
+        <div id="policiesMsg" class="muted"></div>
+      </div>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="panel" aria-label="Key management">
+      <h3>Key Management</h3>
+      <div class="section-body">
+        <div class="row" style="align-items:flex-start; gap:18px">
+          <div class="card" style="flex:1;min-width:260px">
+            <div class="stack">
+              <div style="font-weight:700;color:var(--gc-blue);margin-bottom:4px">Issue new key</div>
+              <div class="field">
+                <label>Department</label>
+                <select id="deptSelect">
+                  <option value="IRCC">IRCC</option><option value="ESDC">ESDC</option>
+                  <option value="CRA">CRA</option><option value="HC">HC</option><option value="TBS">TBS</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Scope</label>
+                <div class="row"><span class="pill">canchat:chat</span><span class="muted">MVP scope</span></div>
+              </div>
+              <div class="row" style="gap:10px">
+                <div class="field" style="flex:1">
+                  <label>Monthly calls</label>
+                  <input class="input" id="quotaCalls" value="100000" />
+                </div>
+                <div class="field" style="flex:1">
+                  <label>Burst RPS</label>
+                  <input class="input" id="quotaRps" value="50" />
+                </div>
+              </div>
+              <div class="row" style="gap:8px">
+                <button class="btn primary" id="btnIssueKey">Generate key</button>
+                <div id="issueMsg" class="muted"></div>
+              </div>
+              <div id="keyReveal" class="row" style="display:none">
+                <span class="secret" id="secretMask">••••••••••••••••••••••••••••••••••••••••</span>
+                <button class="btn ghost" id="revealBtn">Reveal once</button>
+                <button class="btn ghost" id="copyBtn">Copy</button>
+              </div>
+              <div class="muted">Keys are revealed once, then only rotate or revoke.</div>
+            </div>
+          </div>
+
+          <div class="card" style="flex:2;min-width:360px">
+            <div class="row" style="justify-content:space-between;align-items:center">
+              <div style="font-weight:700;color:var(--gc-blue)">Active keys</div>
+              <div class="muted">Per department</div>
+            </div>
+            <table class="table" id="keysTable" style="margin-top:8px">
+              <thead>
+                <tr><th>Department</th><th>Created</th><th>Status</th><th>Quota</th><th>Actions</th></tr>
+              </thead>
+              <tbody id="keysTbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================
+       MY SERVICES
+       ========================== -->
+  <section class="container view" data-view="myservices" aria-labelledby="navMyServices">
+    <!-- LEFT: Profile -->
+    <aside class="panel" aria-label="Your profile">
+<br>
+	<h2 style="margin:0;color:var(--gc-blue)">My Services </h2> <br>
+<span class="muted">Profile based (signed-in identity, department, roles) and quick links, service cards with summaries for tools, models and software the user can access (including relevant info for developers when applicable. </span>
+
+ <div class="hr"></div>
+      <h3>Profile</h3>
+      <div class="section-body" style="display:flex;flex-direction:column;gap:12px">
+        <div class="kv">
+          <div class="k">Signed in</div><div>andrew.nice@ssc-spc.gc.ca</div>
+          <div class="k">Department</div><div><span class="pill">SSC</span></div>
+          <div class="k">Roles</div><div class="chips"><span class="chip">Requester</span><span class="chip">Developer</span></div>
+        </div>
+        <div class="hr"></div>
+        <div class="muted">Quick links</div>
+        <div class="chips">
+          <a class="chip" href="#" data-route="usage">Usage dashboard</a>
+          <a class="chip" href="#" data-route="governance">Terms of Use</a>
+          <a class="chip" href="#">Support</a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- RIGHT: Services -->
+    <section class="panel" aria-label="Your services">
+      <h3>Your Services</h3>
+      <div class="section-body">
+        <div class="grid" style="grid-template-columns:repeat(2,1fr);gap:16px">
+          <!-- CANChat -->
+          <article class="card" aria-label="CANChat service" style="flex-direction:row;gap:16px">
+            <div class="thumb" style="min-width:100px;height:100px">CANCHAT</div>
+            <div style="flex:1;display:flex;flex-direction:column;gap:8px">
+              <div class="row" style="justify-content:space-between;gap:8px">
+                <div>
+                  <div style="font-weight:800;color:var(--gc-blue);font-size:1.05rem">CANChat</div>
+                  <div class="meta">Provider: SSC · Sensitivity: Protected B (pilot)</div>
+                </div>
+                <div class="chips"><span class="tag">Chat</span><span class="tag">Audit</span></div>
+              </div>
+              <div class="row">
+                <a class="btn primary" href="https://canchat-v2.dsai-sdia.ssc-spc.cloud-nuage.canada.ca/auth" target="_blank" rel="noopener">Open workspace</a>
+                <button class="btn ghost" data-docs="CANChat">View docs</button>
+                <div style="flex:1"></div>
+                <button class="btn ghost" data-manage-key data-dept="IRCC" data-service="CANChat">Manage key</button>
+              </div>
+              <div class="kv" style="margin-top:4px">
+                <div class="k">Endpoint</div><div><span class="kbd">/v1/canchat/chat</span></div>
+                <div class="k">Quota</div><div>100k calls / 50 RPS</div>
+                <div class="k">Status</div><div><span class="pill">Operational</span></div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Cohere -->
+          <article class="card" aria-label="Cohere Command A service" style="flex-direction:row;gap:16px">
+            <div class="thumb" style="min-width:100px;height:100px">COHERE</div>
+            <div style="flex:1;display:flex;flex-direction:column;gap:8px">
+              <div class="row" style="justify-content:space-between;gap:8px">
+                <div>
+                  <div style="font-weight:800;color:var(--gc-blue);font-size:1.05rem">Cohere Command A</div>
+                  <div class="meta">Provider: Cohere via SSC proxy · Sensitivity: Unclassified/PBMM</div>
+                </div>
+                <div class="chips"><span class="tag">Chat</span><span class="tag">Summarization</span></div>
+              </div>
+              <div class="row">
+                <button class="btn primary" data-open-workspace="Cohere">Open workspace</button>
+                <button class="btn ghost" data-docs="Cohere">View docs</button>
+                <div style="flex:1"></div>
+                <button class="btn ghost" data-manage-key data-dept="IRCC" data-service="Cohere">Manage key</button>
+              </div>
+              <div class="kv" style="margin-top:4px">
+                <div class="k">Endpoint</div><div><span class="kbd">/v1/provider/chat</span></div>
+                <div class="k">Quota</div><div>80k calls / 30 RPS</div>
+                <div class="k">Status</div><div><span class="pill">Operational</span></div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Placeholder -->
+          <article class="card" aria-label="Departmental RAG (pilot)" style="flex-direction:row;gap:16px">
+            <div class="thumb" style="min-width:100px;height:100px">TOOL</div>
+            <div style="flex:1;display:flex;flex-direction:column;gap:8px">
+              <div class="row" style="justify-content:space-between;gap:8px">
+                <div>
+                  <div style="font-weight:800;color:var(--gc-blue);font-size:1.05rem">Departmental RAG (pilot)</div>
+                  <div class="meta">Owner: ESDC · Status: Candidate</div>
+                </div>
+                <div class="chips"><span class="tag">Workflow</span><span class="tag">RAG</span></div>
+              </div>
+              <div class="row">
+                <button class="btn primary" disabled title="Coming soon">Open</button>
+                <button class="btn ghost" disabled>View docs</button>
+                <div style="flex:1"></div>
+                <button class="btn ghost" disabled>Manage</button>
+              </div>
+              <div class="kv" style="margin-top:4px">
+                <div class="k">Status</div><div><span class="pill">Coming soon</span></div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- ======================
+       DETAILS
+       ====================== -->
+  <section class="container view" data-view="details" aria-label="Details view">
+    <div class="content">
+      <button class="btn link" data-route="catalog">← Back to catalog</button>
+      <h2 id="detailsTitle" style="margin-top:8px">Model details</h2>
+      <div class="cols" style="margin-top:10px">
+        <div>
+          <p class="muted" id="detailsMeta">Provider · Deployment · Sensitivity</p>
+          <p id="detailsDesc">Description…</p>
+          <div class="steps" aria-label="Onboarding steps">
+            <span class="step done">1. Review</span>
+            <span class="step">2. Request</span>
+            <span class="step">3. Governance</span>
+            <span class="step">4. Workspace</span>
+          </div>
+        </div>
+        <div>
+          <div class="panel">
+            <h3 style="padding:14px 16px;margin:0;border-bottom:1px solid var(--line)">Quick facts</h3>
+            <div style="padding:14px 16px;display:grid;gap:8px">
+              <div><strong>Capabilities:</strong> <span id="detailsCaps">Chat, NLP, RAG</span></div>
+              <div><strong>Sensitivity:</strong> <span id="detailsSens">Protected B (pilot)</span></div>
+              <div><strong>Access:</strong> API key / portal workspace</div>
+              <div><strong>Languages:</strong> EN / FR</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:14px;display:flex;gap:10px">
+        <button class="btn primary" data-route="request">Request access</button>
+        <button class="btn ghost" data-route="requests">View my requests</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================
+       REQUEST (form)
+       ====================== -->
+  <section class="container view" data-view="request" aria-label="Request access">
+    <div class="content">
+      <button class="btn link" data-route="details">← Back to details</button>
+      <h2>Request access: <span id="reqModelHeader">Model</span></h2>
+      <div class="stack" style="margin-top:10px">
+        <div class="row" style="align-items:flex-start">
+          <label for="dept" style="min-width:180px;font-weight:600">Department</label>
+          <input id="dept" class="input" placeholder="e.g., SSC, IRCC" value="SSC" />
+        </div>
+        <div class="row" style="align-items:flex-start">
+          <label for="purpose" style="min-width:180px;font-weight:600">Purpose / Use case</label>
+          <textarea id="purpose" class="input" placeholder="Describe the business need and expected outcomes"></textarea>
+        </div>
+        <div class="row" style="align-items:flex-start">
+          <label for="sensitivity" style="min-width:180px;font-weight:600">Data sensitivity</label>
+          <select id="sensitivity" class="input">
+            <option>Unclassified</option>
+            <option>PBMM</option>
+            <option selected>Protected B</option>
+          </select>
+        </div>
+        <div class="row" style="align-items:flex-start">
+          <label for="dataDesc" style="min-width:180px;font-weight:600">Data description</label>
+          <textarea id="dataDesc" class="input" placeholder="Types of data, sources, PII presence, retention"></textarea>
+        </div>
+        <div class="row" style="align-items:flex-start">
+          <label for="timeline" style="min-width:180px;font-weight:600">Timeline</label>
+          <input id="timeline" class="input" placeholder="e.g., Pilot in Q4, production in Q1" />
+        </div>
+        <div class="row" style="align-items:flex-start">
+          <label for="approver" style="min-width:180px;font-weight:600">Approver</label>
+          <input id="approver" class="input" placeholder="Director/Sr. Mgr name or distro" />
+        </div>
+      </div>
+
+      <div class="hr"></div>
+      <div class="row" style="justify-content:flex-end;gap:10px">
+        <button class="btn ghost" data-route="details">Cancel</button>
+        <button class="btn primary" id="btnSubmitRequest">Submit request</button>
+      </div>
+      <div id="reqMsg" class="muted" style="margin-top:8px"></div>
+    </div>
+  </section>
+
+  <!-- ======================
+       REQUESTS (list)
+       ====================== -->
+  <section class="container view" data-view="requests" aria-labelledby="navRequests" aria-label="My requests">
+    <div class="content">
+      <h2 style="margin-top:0">My Requests</h2>
+      <p class="muted" id="requestsSubtitle">View status and details of submitted access requests.</p>
+      <table class="table" aria-label="Requests table">
+        <thead>
+          <tr><th>Request #</th><th>Model</th><th>Department</th><th>Status</th><th>Submitted</th><th>Action</th></tr>
+        </thead>
+        <tbody id="requestsTbody"></tbody>
+      </table>
+      <div class="hr"></div>
+      <button class="btn ghost" data-route="catalog">← Back to catalog</button>
+    </div>
+  </section>
+
+  <!-- ======================
+     GOVERNANCE REVIEW (approvals)
+     ====================== -->
+<section class="container view" data-view="review" aria-label="Governance review">
+  <div class="content">
+    <button class="btn link" data-route="requests">← Back to requests</button>
+    <h2>Governance review · <span id="revRef">REQ-0000</span></h2>
+    <p class="muted">Complete checks, record a decision, and (if approved) provision workspace + key.</p>
+
+    <div class="cols" style="align-items:start; gap:16px">
+      <!-- LEFT: Approval checklist -->
+      <div class="panel" style="flex:1.4">
+        <h3 style="margin:0;padding:14px 16px;border-bottom:1px solid var(--line)">Approval checklist</h3>
+        <div style="padding:14px 16px;display:grid;gap:12px">
+          <div class="kv">
+            <div class="k">Department</div><div id="revDept"><span class="pill">SSC</span></div>
+            <div class="k">Model/Service</div><div id="revModel">CANChat (SSC-Hosted)</div>
+            <div class="k">Sensitivity</div><div id="revSens"><span class="pill">Protected B (pilot)</span></div>
+            <div class="k">Submitted</div><div id="revDate">2025-09-25</div>
+          </div>
+
+          <div class="hr"></div>
+
+          <div class="field">
+            <label class="muted">Policy & risk gates</label>
+            <div class="stack" style="gap:8px">
+              <label><input type="checkbox" id="chkPrivacy" /> Privacy/PIA screen passed</label>
+              <label><input type="checkbox" id="chkTRA" /> TRA checks passed / risks accepted</label>
+              <label><input type="checkbox" id="chkDADM" /> DADM alignment confirmed</label>
+              <label><input type="checkbox" id="chkLicensing" /> Licensing/terms approved</label>
+              <label><input type="checkbox" id="chkFinance" /> Financial authority confirmed</label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Exceptions (optional)</label>
+            <div class="chips" role="group" aria-label="Exceptions requested">
+              <button class="chip" type="button">Higher RPS</button>
+              <button class="chip" type="button">Larger payload</button>
+              <button class="chip" type="button">PB vault access</button>
+            </div>
+            <input class="input" id="revExceptionNotes" placeholder="Compensating controls / expiry (e.g., 30 days)" />
+          </div>
+
+          <div class="field">
+            <label>Reviewer notes</label>
+            <textarea class="input" id="revNotes" placeholder="Decision rationale, conditions, follow-ups…"></textarea>
+          </div>
+
+          <div class="muted">Tip: All fields are mock; your existing Approve button will still provision the demo workspace.</div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Decision & actions -->
+      <div class="panel" style="flex:1">
+        <h3 style="margin:0;padding:14px 16px;border-bottom:1px solid var(--line)">Decision</h3>
+        <div style="padding:14px 16px;display:grid;gap:12px">
+          <div class="field">
+            <label class="muted">Select outcome</label>
+            <div class="stack" role="radiogroup" aria-label="Decision">
+              <label><input type="radio" name="revDecision" id="decApprove" checked /> Approve & provision</label>
+              <label><input type="radio" name="revDecision" id="decChanges" /> Request changes</label>
+              <label><input type="radio" name="revDecision" id="decReject" /> Reject</label>
+            </div>
+          </div>
+
+          <div class="kv">
+            <div class="k">Provisioning result</div><div class="muted">Workspace + API key (one-time reveal), default quotas</div>
+            <div class="k">Post-approval</div><div class="muted">Track in <a href="#" data-route="usage">Usage</a> and tune in <a href="#" data-route="gateway">Gateway</a></div>
+          </div>
+
+          <div class="hr"></div>
+
+          <div class="row" style="gap:8px;flex-wrap:wrap">
+            <!-- Keep existing ID so current JS continues to work -->
+            <button class="btn primary" id="btnApproveProvision">Approve & provision</button>
+            <button class="btn ghost" id="btnRequestChanges">Request changes</button>
+            <button class="btn warn" id="btnReject">Reject</button>
+            <button class="btn ghost" id="btnSaveDraft">Save draft</button>
+          </div>
+
+          <div class="muted" id="revFlash" role="status" aria-live="polite"></div>
+
+          <div class="hr"></div>
+          <h4 style="margin:0">Audit trail (mock)</h4>
+          <ul class="muted" id="revAudit" style="margin:6px 0 0 18px">
+            <li>REQ created · Dept submitted</li>
+            <li>Auto-checks completed · Privacy/TRA pre-screen</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- ======================
+       WORKSPACE (demo)
+       ====================== -->
+  <section class="container view" data-view="workspace" aria-label="Workspace">
+    <div class="content">
+      <button class="btn link" data-route="requests">← Back to requests</button>
+      <h2>Workspace: <span id="wsModel">CANChat (SSC-Hosted)</span></h2>
+      <div class="cols" style="align-items:start">
+        <div>
+          <div class="panel" style="margin-bottom:14px">
+            <h3 style="margin:0;padding:14px 16px;border-bottom:1px solid var(--line)">Credentials</h3>
+            <div style="padding:14px 16px;display:grid;gap:8px">
+              <div><strong>Endpoint:</strong> <code class="kbd" id="wsEndpoint">https://api.ssc.gc.ca/ai/canchat/v1/chat</code></div>
+              <div><strong>API key:</strong> <code class="kbd" id="wsKey">gcai_********************************</code></div>
+              <div><button class="btn ghost" id="btnRotateWsKey">Rotate key</button></div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h3 style="margin:0;padding:14px 16px;border-bottom:1px solid var(--line)">Quickstart (cURL)</h3>
+            <pre class="kbd" id="curl">curl -X POST \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  https://api.ssc.gc.ca/ai/canchat/v1/chat \
+  -d '{
+    "model": "canchat-latest",
+    "messages": [{"role":"user","content":"Hello CANChat"}],
+    "temperature": 0.2
+  }'</pre>
+          </div>
+        </div>
+        <div>
+          <div class="panel" style="margin-bottom:14px">
+            <h3 style="margin:0;padding:14px 16px;border-bottom:1px solid var(--line)">SDK snippet (JavaScript)</h3>
+            <pre class="kbd">import fetch from "node-fetch";
+const res = await fetch("https://api.ssc.gc.ca/ai/canchat/v1/chat",{
+  method:"POST",
+  headers:{"Authorization":`Bearer ${process.env.AI_KEY}`,"Content-Type":"application/json"},
+  body: JSON.stringify({ model:"canchat-latest", messages:[{role:"user", content:"Hello"}] })
+});
+const data = await res.json();
+console.log(data.choices[0].message.content);
+</pre>
+          </div>
+          <div class="panel">
+            <h3 style="margin:0;padding:14px 16px;border-bottom:1px solid var(--line)">Observability</h3>
+            <div style="padding:14px 16px">
+              <div class="row"><label>Calls (24h)</label><div class="kbd">128</div></div>
+              <div class="row"><label>Avg latency</label><div class="kbd">412 ms</div></div>
+              <div class="row"><label>Errors</label><div class="kbd">0.3%</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Drawer: Manage Key (My Services) -->
+  <aside class="drawer" id="keyDrawer" aria-label="Manage key drawer" aria-hidden="true">
+    <header>
+      <div style="font-weight:700;color:var(--gc-blue)">Manage Access</div>
+      <button class="btn ghost" id="btnCloseDrawer">Close</button>
+    </header>
+    <div class="wrap">
+      <div class="muted" id="drawerTitle">Department — Service</div>
+      <div class="hr"></div>
+      <div class="muted">One-time reveal: keys are only shown once. Afterwards you can rotate or revoke.</div>
+      <div class="row">
+        <span class="secret" id="secret">••••••••••••••••••••••••••••••••••••••••</span>
+        <button class="btn ghost" id="svcRevealBtn">Reveal</button>
+        <button class="btn ghost" id="svcCopyBtn">Copy</button>
+      </div>
+      <div class="kv" style="margin-top:8px">
+        <div class="k">Scope</div><div><span class="pill" id="scope">canchat:chat</span></div>
+        <div class="k">Quota</div><div id="quota">100k calls / 50 RPS</div>
+        <div class="k">Endpoint</div><div><span class="kbd" id="endpoint">/v1/canchat/chat</span></div>
+      </div>
+      <div class="hr"></div>
+      <div class="row">
+        <button class="btn" id="svcRotateBtn">Rotate</button>
+        <button class="btn warn" id="svcRevokeBtn">Revoke</button>
+      </div>
+      <div class="muted" id="opMsg"></div>
+      <div class="hr"></div>
+      <div>
+        <div style="font-weight:700;color:var(--gc-blue);margin-bottom:6px">Quickstart</div>
+        <div class="kv">
+          <div class="k">cURL</div><div class="kbd">curl -H "Authorization: Bearer &amp;lt;KEY&amp;gt;" -d '{...}' https://api.example.gc.ca/v1/...</div>
+          <div class="k">Docs</div><div><a href="#">Open API Guide</a></div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ======================
+       GOVERNANCE (new)
+       ====================== -->
+  <!-- ======================
+     GOVERNANCE (fixed)
+     ====================== -->
+<section class="container view" data-view="governance" aria-labelledby="navGovernance">
+  <header class="page-head">
+    <div class="row" style="justify-content:space-between;align-items:center;gap:12px">
+      <div>
+        <h1 style="margin:0">&nbsp;Governance</h1>
+        <p class="muted" style="margin:.25rem 0 0">
+          &nbsp;Guardrails, roles, and routines that let departments adopt AI quickly—without compromising privacy, security, or fiscal stewardship.
+        </p>
+      </div>
+ 
+    </div>
+
+    <nav class="subnav" aria-label="Governance sections" style="margin-top:12px">
+      <a href="#gov-overview">Overview</a>
+      <a href="#gov-roles">Roles & RACI</a>
+      <a href="#gov-policies">Policy registry</a>
+      <a href="#gov-workflows">Workflows</a>
+      <a href="#gov-safety">Safety & Responsible AI</a>
+      <a href="#gov-observability">Observability & SLOs</a>
+      <a href="#gov-finops">Quotas & Cost</a>
+      <a href="#gov-data">Data & Records</a>
+      <a href="#gov-incidents">Incidents</a>
+      <a href="#gov-compliance">Compliance</a>
+      <a href="#gov-artifacts">Artefacts</a>
+      <a href="#gov-contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="grid" style="grid-template-columns: 1fr 320px; gap:16px">
+    <!-- LEFT -->
+    <div class="stack" style="gap:16px">
+      <article id="gov-overview" class="panel">
+        <h2>Purpose & scope</h2>
+        <p>
+          Enable safe, compliant, cost-effective AI usage across departments. Applies to Catalog, Gateway, My Services (keys),
+          Usage analytics, and supporting controls for AI workloads.
+        </p>
+        <ul class="muted">
+          <li>Authorities & standards: ITSG-33 alignment, TBS directives (privacy, security, service), departmental TRA/PIA.</li>
+          <li>Operating principles: least privilege, data minimization, observability-first, versioned change.</li>
+        </ul>
+      </article>
+
+      <article id="gov-roles" class="panel">
+        <h2>Roles & decision rights</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Role</th><th>Owns</th><th>Examples</th></tr></thead>
+            <tbody>
+              <tr><td>Platform (SSC)</td><td>Gateway policies, quotas, FinOps, incidents, provider contracts</td><td>Set size/timeout, throttle, vendor SLAs</td></tr>
+              <tr><td>Departments</td><td>Keys, app guardrails, data stewardship</td><td>Key rotation, app-level filtering, business approvals</td></tr>
+              <tr><td>Security & Privacy</td><td>Sensitivity approvals, exemptions, DPIA/TRA</td><td>Protected B pilot gates, compensating controls</td></tr>
+              <tr><td>Finance/Procurement</td><td>Cost recovery, due diligence</td><td>Unit rates, budget variance review</td></tr>
+              <tr><td>Steering committee</td><td>Risk/exception arbitration, roadmap</td><td>Pilot graduation, model retirement</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article id="gov-policies" class="panel">
+        <h2>Policy registry (versioned)</h2>
+        <p class="muted">Default guardrails; exceptions are time-boxed and monitored.</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Policy</th><th>Applies to</th><th style="text-align:right">Default</th><th>Override path</th><th>Owner</th><th>Review</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Request size limit</td><td>All routes</td><td style="text-align:right">1 MB</td><td>Exception form</td><td>Platform Sec</td><td>Quarterly</td></tr>
+              <tr><td>Timeout</td><td>All routes</td><td style="text-align:right">60 s</td><td>Exception</td><td>Platform Ops</td><td>Quarterly</td></tr>
+              <tr><td>Concurrency</td><td>Per key</td><td style="text-align:right">50</td><td>Quota package</td><td>Platform Ops</td><td>Quarterly</td></tr>
+              <tr><td>Data sensitivity</td><td>Workloads</td><td style="text-align:right">PBMM; PB (pilot)</td><td>Steering approval</td><td>Privacy</td><td>Quarterly</td></tr>
+              <tr><td>Logging & retention</td><td>Metadata</td><td style="text-align:right">90 days</td><td>Records schedule</td><td>Records</td><td>Annual</td></tr>
+              <tr><td>Safety classifiers</td><td>Prompts/outputs</td><td style="text-align:right">PII, toxicity</td><td>—</td><td>Platform Sec</td><td>Quarterly</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="row" style="gap:8px;margin-top:8px">
+          <a class="btn ghost" data-route="requests">Request an exception</a>
+          <a class="btn ghost" data-route="gateway">Edit policies in Gateway</a>
+        </div>
+      </article>
+
+      <article id="gov-workflows" class="panel">
+        <h2>Onboarding & lifecycle</h2>
+        <ol>
+          <li><strong>Request</strong> — submit use case, sensitivity, data sources, expected volumes.</li>
+          <li><strong>Automated checks</strong> — policy fit, privacy screens, TRA gates, licensing.</li>
+          <li><strong>Provision</strong> — workspace + key, default quotas, tagging (dept/env/sensitivity).</li>
+          <li><strong>Observe</strong> — monitor in <a href="#" data-route="usage">Usage</a>; tune in <a href="#" data-route="gateway">Gateway</a>.</li>
+          <li><strong>Renew/Retire</strong> — quarterly review, export audit trail, remove access.</li>
+        </ol>
+        <div class="row" style="gap:8px">
+          <a class="btn" data-route="request">Start request</a>
+          <a class="btn ghost" data-route="requests">Download checklist</a>
+        </div>
+      </article>
+
+      <article id="gov-safety" class="panel">
+        <h2>Safety & responsible AI</h2>
+        <ul>
+          <li><strong>Pre-deploy:</strong> safety evals (toxicity, jailbreaks), fairness spot-checks, misuse scenarios.</li>
+          <li><strong>Runtime:</strong> PII detection/redaction, content filters, size caps, allow/deny lists, RAG citations.</li>
+          <li><strong>Human-in-the-loop:</strong> escalation paths, review queues for flagged content, auditability.</li>
+        </ul>
+        <p class="muted">Repeated violations may trigger throttling until an owner acknowledges remediation.</p>
+      </article>
+
+      <article id="gov-observability" class="panel">
+        <h2>Observability & SLOs</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Metric</th><th>Target / SLO</th><th>Alert threshold</th><th>Owner</th></tr></thead>
+            <tbody>
+              <tr><td>Availability (route)</td><td>≥ 99.9% monthly</td><td>&lt; 99.5% (24h)</td><td>Platform Ops</td></tr>
+              <tr><td>Latency p95</td><td>≤ 1.5 s</td><td>&gt; 2.0 s (1h)</td><td>Platform Ops</td></tr>
+              <tr><td>Error rate</td><td>&lt; 1%</td><td>≥ 2% (15 min)</td><td>Sec/Ops</td></tr>
+              <tr><td>Spend variance</td><td>≤ +10% vs forecast</td><td>&gt; +15% (7d)</td><td>FinOps</td></tr>
+              <tr><td>Safety flags</td><td>&lt; 0.25% of calls</td><td>≥ 0.5% (24h)</td><td>Platform Sec</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="muted" style="margin-top:6px">
+          Thresholds mirror configurable alerts in <a href="#" data-route="usage">Usage</a>.
+        </div>
+      </article>
+
+      <article id="gov-finops" class="panel">
+        <h2>Quotas & cost recovery</h2>
+        <ul>
+          <li><strong>Quota tiers:</strong> monthly calls, RPS, and burst; exception path for campaigns/pilots.</li>
+          <li><strong>Chargeback:</strong> unit rates (tokens in/out, hosted vs provider), internal overhead %, showback dashboard.</li>
+          <li><strong>Budget guardrails:</strong> soft cap notice at <span class="status-pill warn">80%</span>, hard cap at <span class="status-pill bad">100%</span> (auto-throttle).</li>
+        </ul>
+        <div class="row" style="gap:8px">
+          <a class="btn ghost" data-route="usage">Open Usage</a>
+          <a class="btn ghost" data-route="gateway">Adjust quotas</a>
+        </div>
+      </article>
+
+      <article id="gov-data" class="panel">
+        <h2>Data governance & records</h2>
+        <ul>
+          <li><strong>Logged by default:</strong> request/response metadata, classifier flags; no raw content for PBMM.</li>
+          <li><strong>PB pilots:</strong> optional secure vault, time-boxed, hashed pointers; additional approvals required.</li>
+          <li><strong>Retention:</strong> durations by sensitivity, export on request, immutable audit trails.</li>
+          <li><strong>Provenance:</strong> RAG source attribution and citation coverage targets.</li>
+        </ul>
+      </article>
+
+      <article id="gov-incidents" class="panel">
+        <h2>Incident response</h2>
+        <ul>
+          <li><strong>Declare when:</strong> 5xx spikes, safety surge, suspected data leak, provider outage.</li>
+          <li><strong>Playbooks:</strong> isolate keys, route failover, token kill-switch, comms templates, PIR within 5 business days.</li>
+          <li><strong>Timeframes:</strong> triage ≤ 15 min; stakeholder update ≤ 1 h.</li>
+        </ul>
+        <div class="row" style="gap:8px">
+          <a class="btn" data-route="requests">Report an incident</a>
+          <a class="btn ghost" data-route="gateway">Open playbooks</a>
+        </div>
+      </article>
+
+      <article id="gov-compliance" class="panel">
+        <h2>Compliance mapping</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Control theme</th><th>Practice in Marketplace</th><th>Framework refs</th></tr></thead>
+            <tbody>
+              <tr><td>Access control</td><td>Keys per dept/env, least privilege, rotation</td><td>ITSG-33; GC IAM</td></tr>
+              <tr><td>Data protection</td><td>TLS, PII redaction, size limits, retention</td><td>ITSG-33; Privacy Act</td></tr>
+              <tr><td>Monitoring</td><td>Usage KPIs, alerts, audit logs</td><td>ITSG-33; TBS Policy on Service</td></tr>
+              <tr><td>Change mgmt</td><td>Version pinning, rollout gates, rollback</td><td>ITIL/GC Ops</td></tr>
+              <tr><td>Procurement</td><td>Vendor due diligence, SLAs, exit terms</td><td>GC Contracting policy</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article id="gov-artifacts" class="panel">
+        <h2>Governance artefacts</h2>
+        <div class="row" style="gap:8px;flex-wrap:wrap">
+          <button class="btn ghost">Operating model (MD)</button>
+          <a class="btn ghost" data-route="requests">Policy registry (CSV)</a>
+          <a class="btn ghost" data-route="requests">Risk register template (CSV)</a>
+          <a class="btn ghost" data-route="gateway">Incident playbook (MD)</a>
+          <a class="btn ghost" data-route="requests">Model evaluation checklist (MD)</a>
+          <a class="btn ghost" data-route="requests">Steering ToR (MD)</a>
+        </div>
+        <p class="muted" style="margin-top:8px">Note: Downloads are mocked; wire to your export endpoints as they become available.</p>
+      </article>
+
+      <article id="gov-contact" class="panel">
+        <h2>Contact & escalation</h2>
+        <ul>
+          <li><strong>Platform Ops:</strong> on-call channel</li>
+          <li><strong>Security:</strong> incident response queue</li>
+          <li><strong>Privacy:</strong> PIA/DPIA advisory</li>
+          <li><strong>FinOps:</strong> budget & chargeback</li>
+        </ul>
+        <div class="row" style="gap:8px">
+          <a class="btn" data-route="requests">Open a request</a>
+          <a class="btn ghost" data-route="usage">Ask for more quota</a>
+        </div>
+      </article>
+    </div>
+
+    <!-- RIGHT (sticky rail) -->
+    <aside class="stack" style="gap:16px; position:sticky; top:72px; align-self:start">
+      <section class="panel">
+        <h3>Your status</h3>
+        <ul class="muted">
+          <li>Current quota: <strong>100k calls / 50 RPS</strong></li>
+          <li>Open exceptions: <strong>1</strong> (Pending)</li>
+          <li>Last action item: <strong>Rotate prod key</strong></li>
+        </ul>
+        <a class="btn ghost" data-route="gateway">Manage keys</a>
+	<a class="btn ghost" id="btnGovExport" title="Download Governance charter as Markdown">Export charter (MD)</a>
+      </section>
+
+      <section class="panel">
+        <h3>Key thresholds</h3>
+        <div class="chips" style="gap:6px;flex-wrap:wrap">
+          <span class="chip">Error ≥ <strong>2%</strong></span>
+          <span class="chip">p95 &gt; <strong>2.0s</strong></span>
+          <span class="chip">Spend &gt; <strong>+$15%</strong></span>
+          <span class="chip">Safety &gt; <strong>0.5%</strong></span>
+          <span class="chip">Quota &gt; <strong>80%</strong></span>
+        </div>
+        <p class="muted" style="margin-top:6px">
+          Managed in <a href="#" data-route="usage">Usage → Alerts</a>.
+        </p>
+      </section>
+    </aside>
+  </div>
+</section>
+
+  <!-- ======================
+       USAGE (new)
+       ====================== -->
+  <section class="container view" data-view="usage" aria-labelledby="navUsage">
+    <!-- Left: Filters -->
+    <aside class="panel" aria-label="Usage filters"> <br>
+<h2 style="margin:0;color:var(--gc-blue)">&nbsp;Usage </h2> <br>
+<span class="muted">&nbsp;Operational reporting; performance, utilization, FinOps dashboards, threshold alerts and exports. </span>
+
+ <div class="hr"></div>
+
+      <h3>Filters</h3>
+      <div class="filter-body">
+        <div class="fieldset">
+          <label>Time</label>
+          <select id="fTime" class="input">
+            <option value="24h">Last 24h</option>
+            <option value="7d">Last 7d</option>
+            <option value="30d">Last 30d</option>
+            <option value="custom">Custom…</option>
+          </select>
+        </div>
+        <div class="fieldset">
+          <label>Dimension</label>
+          <select id="fDim" class="input">
+            <option value="dept">Department</option>
+            <option value="service">Service/Model</option>
+            <option value="route">Route</option>
+            <option value="key">Key</option>
+            <option value="env">Environment</option>
+          </select>
+        </div>
+        <div class="fieldset">
+          <label>Result type</label>
+          <div class="chips">
+            <button class="chip active" data-res="success">Success</button>
+            <button class="chip" data-res="4xx">4xx</button>
+            <button class="chip" data-res="5xx">5xx</button>
+            <button class="chip" data-res="safety">Safety</button>
+          </div>
+        </div>
+        <div class="fieldset">
+          <label>Sensitivity</label>
+          <select id="fSens" class="input">
+            <option>Unclassified/PBMM</option>
+            <option>Protected B (pilot)</option>
+          </select>
+        </div>
+
+        <div class="fieldset">
+          <label>Legend filter (click to toggle)</label>
+          <div class="chips" id="legendChips">
+            <button class="chip active" data-legend="CANChat">CANChat</button>
+            <button class="chip active" data-legend="Cohere">Cohere</button>
+          </div>
+        </div>
+
+        <div class="row">
+          <button class="btn primary" id="btnApplyUsage">Apply</button>
+          <button class="btn ghost" id="btnResetUsage">Reset</button>
+        </div>
+        <div class="hr"></div>
+
+        <div class="fieldset">
+          <label>Alerts</label>
+          <div class="stack">
+            <label class="muted">error% &gt; <input id="alertErr" class="input" style="width:70px" value="2">%</label>
+            <label class="muted">p95 &gt; <input id="alertP95" class="input" style="width:70px" value="1500"> ms</label>
+            <label class="muted">spend &gt; $<input id="alertSpend" class="input" style="width:90px" value="500"> /day</label>
+            <button class="btn ghost" id="btnSaveAlerts">Save thresholds</button>
+          </div>
+        </div>
+
+        <div class="fieldset">
+          <label>Exports</label>
+          <div class="row">
+            <button class="btn ghost" id="btnExportCSV">Tables CSV</button>
+            <button class="btn ghost" id="btnExportJSON">KPIs JSON</button>
+            <button class="btn ghost" id="btnCopyCurl">Copy cURL</button>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Right: KPIs + Charts + Tables -->
+    <section>
+      <h2 style="margin:0;color:var(--gc-blue)">Usage</h2>
+
+      <!-- KPI strip -->
+      <div class="kpi-strip" id="kpiStrip">
+        <!-- Cards injected -->
+      </div>
+
+      <!-- Charts -->
+      <div class="panel">
+        <h3>Traffic & performance</h3>
+        <div class="section-body">
+          <div class="chart-grid">
+            <div class="chart-card">
+              <div class="chart-title">Requests over time <span class="muted">(stacked)</span></div>
+              <div class="mini-legend">
+                <button class="chip small active" data-legend="CANChat">CANChat</button>
+                <button class="chip small active" data-legend="Cohere">Cohere</button>
+              </div>
+              <canvas id="chReq" width="520" height="150" class="canvas"></canvas>
+            </div>
+            <div class="chart-card">
+              <div class="chart-title">Latency over time <span class="muted">(p50/p95)</span></div>
+              <canvas id="chLat" width="520" height="150" class="canvas"></canvas>
+            </div>
+            <div class="chart-card">
+              <div class="chart-title">Throughput (RPS)</div>
+              <canvas id="chRps" width="520" height="120" class="canvas"></canvas>
+            </div>
+            <div class="chart-card">
+              <div class="chart-title">Token usage</div>
+              <div class="mini-legend">
+                <button class="chip small active" data-token="in">Prompt</button>
+                <button class="chip small active" data-token="out">Completion</button>
+                <button class="chip small" id="btnAvgPerReq">Avg/req</button>
+              </div>
+              <canvas id="chTok" width="520" height="120" class="canvas"></canvas>
+            </div>
+            <div class="chart-card">
+              <div class="chart-title">Heatmap (hour × day)</div>
+              <canvas id="chHeat" width="520" height="220" class="canvas"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Errors & reliability -->
+      <div class="panel">
+        <h3>Errors & reliability</h3>
+        <div class="section-body">
+          <div class="cols">
+            <div>
+              <table class="table">
+                <thead><tr><th>Route</th><th>% of total</th><th>Sample</th></tr></thead>
+                <tbody id="tblErrTop"></tbody>
+              </table>
+            </div>
+            <div>
+              <div class="row">
+                <div class="chart-card" style="flex:1">
+                  <div class="chart-title">Failure timeline</div>
+                  <canvas id="chFail" width="360" height="120" class="canvas"></canvas>
+                </div>
+                <div class="chart-card" style="flex:1">
+                  <div class="chart-title">Timeouts vs size limits</div>
+                  <canvas id="chTimeSize" width="360" height="120" class="canvas"></canvas>
+                </div>
+              </div>
+              <div class="row" style="margin-top:10px">
+                <div class="kv" style="flex:1">
+                  <div class="k">Retries</div><div id="kvRetries">—</div>
+                  <div class="k">Throttles</div><div id="kvThrottles">—</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cost & quotas -->
+      <div class="panel">
+        <h3>Cost & quotas</h3>
+        <div class="section-body">
+          <div class="cols">
+            <div>
+              <table class="table">
+                <thead><tr><th>Provider/Route</th><th>Calls</th><th>Tokens (in/out)</th><th>Est. spend</th></tr></thead>
+                <tbody id="tblSpend"></tbody>
+              </table>
+            </div>
+            <div>
+              <table class="table">
+                <thead><tr><th>Department</th><th>Calls used</th><th>RPS peak</th><th>Quota used</th></tr></thead>
+                <tbody id="tblQuota"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Breakdown tables -->
+      <div class="panel">
+        <h3>Breakdowns</h3>
+        <div class="section-body">
+          <div class="tabs row" id="bdTabs">
+            <button class="chip small active" data-bd="dept">By Department</button>
+            <button class="chip small" data-bd="service">By Service/Model</button>
+            <button class="chip small" data-bd="route">By Route</button>
+            <button class="chip small" data-bd="key">By Key</button>
+          </div>
+          <table class="table" id="tblBreak">
+            <thead id="tblBreakHead"></thead>
+            <tbody id="tblBreakBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Content & safety insights -->
+      <div class="panel">
+        <h3>Content & safety insights</h3>
+        <div class="section-body">
+          <div class="cols">
+            <div class="chart-card">
+              <div class="chart-title">Prompt length distribution</div>
+              <canvas id="chPromptLen" width="520" height="120" class="canvas"></canvas>
+            </div>
+            <div>
+              <table class="table">
+                <thead><tr><th>Safety category</th><th>Count</th></tr></thead>
+                <tbody id="tblSafety"></tbody>
+              </table>
+              <div class="kv" style="margin-top:10px">
+                <div class="k">RAG hit rate</div><div id="kvRagHit">—</div>
+                <div class="k">Citation coverage</div><div id="kvCite">—</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Link-outs -->
+      <div class="row">
+        <button class="btn" data-route="gateway">Open Gateway (policy spikes)</button>
+        <button class="btn ghost" data-route="myservices">Requests / Workspace</button>
+      </div>
+    </section>
+  </section>
+
+<!-- DOCS NEW -->
+<!-- ======================
+     DOCS (fake content)
+     ====================== -->
+<section class="container view" data-view="docs" aria-label="Documentation">
+  <header class="page-head">
+    <div class="row" style="justify-content:space-between;align-items:center;gap:12px">
+      <div>
+        <h1 style="margin:0">Docs</h1>
+        <p class="muted" style="margin:.25rem 0 0">Developer quickstarts, endpoints, policies, and examples for the AI Marketplace (mock).</p>
+      </div>
+ 
+    </div>
+
+    <!-- in-page anchors -->
+    <nav class="subnav" aria-label="Docs sections" style="margin-top:12px">
+      <a href="#docs-start">Getting started</a>
+      <a href="#docs-auth">Auth</a>
+      <a href="#docs-endpoints">Endpoints</a>
+      <a href="#docs-streaming">Streaming</a>
+      <a href="#docs-limits">Limits</a>
+      <a href="#docs-errors">Errors</a>
+      <a href="#docs-examples">Examples</a>
+      <a href="#docs-patterns">Patterns</a>
+      <a href="#docs-compliance">Compliance</a>
+      <a href="#docs-changelog">Changelog</a>
+    </nav>
+  </header>
+
+  <div class="grid" style="grid-template-columns: 1fr 320px; gap:16px">
+    <!-- LEFT: MAIN CONTENT -->
+    <div class="stack" style="gap:16px">
+
+<!-- EXTERNAL REFERENCES -->
+<article id="docs-refs" class="panel">
+  <h2>External references</h2>
+  <div class="grid" style="grid-template-columns:repeat(2,1fr);gap:12px">
+    <div class="card">
+      <div style="font-weight:700;margin-bottom:6px">Providers & APIs</div>
+      <ul>
+        <li><a href="https://docs.cohere.com" target="_blank" rel="noopener">Cohere API Docs</a></li>
+        <li><a href="https://docs.mistral.ai" target="_blank" rel="noopener">Mistral Docs</a></li>
+        <li><a href="https://platform.openai.com/docs" target="_blank" rel="noopener">OpenAI Platform Docs</a></li>
+        <li><a href="https://huggingface.co/docs" target="_blank" rel="noopener">Hugging Face Docs</a></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div style="font-weight:700;margin-bottom:6px">Standards & patterns</div>
+      <ul>
+        <li><a href="https://opentelemetry.io/docs/" target="_blank" rel="noopener">OpenTelemetry (metrics/logs/traces)</a></li>
+        <li><a href="https://spec.openapis.org/oas/v3.1.0" target="_blank" rel="noopener">OpenAPI 3.1 Spec</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status" target="_blank" rel="noopener">HTTP Status Codes</a></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div style="font-weight:700;margin-bottom:6px">Security & privacy (generic)</div>
+      <ul>
+        <li><a href="https://owasp.org/www-project-top-ten/" target="_blank" rel="noopener">OWASP Top 10</a></li>
+        <li><a href="https://www.ietf.org/rfc/rfc9110.html" target="_blank" rel="noopener">HTTP Semantics (RFC 9110)</a></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div style="font-weight:700;margin-bottom:6px">ML safety & evaluation</div>
+      <ul>
+        <li><a href="https://arxiv.org/" target="_blank" rel="noopener">arXiv (eval papers)</a></li>
+        <li><a href="https://github.com/LAION-AI/Open-Assistant" target="_blank" rel="noopener">Open Assistant (OSS)</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="muted" style="margin-top:8px">Links open in a new tab; adjust to your approved reference list as needed.</p>
+</article>
+
+<!-- DOCUMENT ARTEFACTS (MOCK DOWNLOADS) -->
+<article id="docs-artifacts" class="panel">
+  <h2>Document artefacts (mock)</h2>
+  <p class="muted">Buttons use file names and types you can wire to a CDN or export endpoint later.</p>
+  <div class="grid" style="grid-template-columns:repeat(2,1fr);gap:12px">
+    <div class="card stack">
+      <div style="font-weight:700">Governance & policy</div>
+      <div class="row" style="gap:8px;flex-wrap:wrap">
+        <a class="btn ghost" href="#" download="Operating-Model.md" data-doc="operating-model">Operating model (MD)</a>
+        <a class="btn ghost" href="#" download="Policy-Registry.csv" data-doc="policy-registry">Policy registry (CSV)</a>
+        <a class="btn ghost" href="#" download="Incident-Playbook.md" data-doc="incident-playbook">Incident playbook (MD)</a>
+        <a class="btn ghost" href="#" download="Data-Handling-SOP.pdf" data-doc="data-sop">Data handling SOP (PDF)</a>
+      </div>
+    </div>
+    <div class="card stack">
+      <div style="font-weight:700">Risk & compliance</div>
+      <div class="row" style="gap:8px;flex-wrap:wrap">
+        <a class="btn ghost" href="#" download="Risk-Register-Template.csv" data-doc="risk-register">Risk register template (CSV)</a>
+        <a class="btn ghost" href="#" download="PIA-DPIA-Checklist.md" data-doc="pia-checklist">PIA/DPIA checklist (MD)</a>
+        <a class="btn ghost" href="#" download="TRA-Summary.md" data-doc="tra-summary">TRA summary template (MD)</a>
+      </div>
+    </div>
+    <div class="card stack">
+      <div style="font-weight:700">Developer artefacts</div>
+      <div class="row" style="gap:8px;flex-wrap:wrap">
+        <a class="btn ghost" href="#" download="AI-Marketplace.openapi.json" data-doc="openapi">OpenAPI spec (JSON)</a>
+        <a class="btn ghost" href="#" download="Postman-Collection.json" data-doc="postman">Postman collection (JSON)</a>
+        <a class="btn ghost" href="#" download="Quickstart-SDK-JS.md" data-doc="sdk-js">SDK quickstart (JS)</a>
+        <a class="btn ghost" href="#" download="Quickstart-Python.md" data-doc="sdk-py">SDK quickstart (Python)</a>
+      </div>
+    </div>
+    <div class="card stack">
+      <div style="font-weight:700">Onboarding</div>
+      <div class="row" style="gap:8px;flex-wrap:wrap">
+        <a class="btn ghost" href="#" download="Access-Request-Form.docx" data-doc="access-form">Access request form (DOCX)</a>
+        <a class="btn ghost" href="#" download="Onboarding-Checklist.md" data-doc="onboarding">Onboarding checklist (MD)</a>
+        <a class="btn ghost" href="#" download="Model-Card-Template.md" data-doc="model-card">Model card template (MD)</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+      <!-- Getting started -->
+      <article id="docs-start" class="panel">
+        <h2>Getting started</h2>
+        <div class="kv">
+          <div class="k">Base URL</div><div class="kbd">https://api.ssc.gc.ca/ai</div>
+          <div class="k">Environments</div><div>pilot / prod (department-scoped)</div>
+          <div class="k">Versioning</div><div class="kbd">/v1/…</div>
+        </div>
+        <p class="muted">This documentation is mock; use the <strong>Workspace</strong> view for live keys and quickstarts once approved.</p>
+      </article>
+
+      <!-- Auth -->
+      <article id="docs-auth" class="panel">
+        <h2>Authentication</h2>
+        <p>Use a department-scoped API key with the <span class="kbd">Authorization: Bearer &lt;KEY&gt;</span> header.</p>
+        <pre class="kbd">curl -H "Authorization: Bearer gcai_xxx" https://api.ssc.gc.ca/ai/v1/canchat/chat -d '{ ... }'</pre>
+        <ul class="muted">
+          <li>Keys are issued in <a href="#" data-route="gateway">Gateway</a> / <a href="#" data-route="myservices">My Services</a> and can be rotated or revoked.</li>
+          <li>Scopes (mock): <span class="kbd">canchat:chat</span>, <span class="kbd">provider:chat</span>, <span class="kbd">embed:encode</span>.</li>
+        </ul>
+      </article>
+
+      <!-- Endpoints -->
+      <article id="docs-endpoints" class="panel">
+        <h2>Endpoints (mock)</h2>
+        <div class="stack" style="gap:12px">
+          <div class="card stack">
+            <div class="row" style="justify-content:space-between">
+              <div><strong>CANChat (internal)</strong> — chat completion</div>
+              <span class="pill">Protected B (pilot)</span>
+            </div>
+            <div class="kv" style="margin-top:6px">
+              <div class="k">POST</div><div class="kbd">/v1/canchat/chat</div>
+            </div>
+            <pre class="kbd">{
+  "model": "canchat-latest",
+  "messages": [{"role":"user","content":"Hello CANChat"}],
+  "temperature": 0.2
+}</pre>
+          </div>
+
+          <div class="card stack">
+            <div class="row" style="justify-content:space-between">
+              <div><strong>Provider (proxied)</strong> — chat completion</div>
+              <span class="pill">PBMM</span>
+            </div>
+            <div class="kv" style="margin-top:6px">
+              <div class="k">POST</div><div class="kbd">/v1/provider/chat</div>
+            </div>
+            <pre class="kbd">{
+  "model": "command-a",
+  "messages": [{"role":"user","content":"Summarize this…"}],
+  "max_tokens": 512
+}</pre>
+          </div>
+
+          <div class="card stack">
+            <div><strong>Embeddings (internal)</strong></div>
+            <div class="kv" style="margin-top:6px">
+              <div class="k">POST</div><div class="kbd">/v1/embeddings</div>
+            </div>
+            <pre class="kbd">{
+  "model": "canembed-001",
+  "input": ["Public datasets on benefits", "Employment insurance"]
+}</pre>
+          </div>
+        </div>
+      </article>
+
+      <!-- Streaming -->
+      <article id="docs-streaming" class="panel">
+        <h2>Streaming (SSE, mock)</h2>
+        <p>Enable streaming responses for token-by-token output.</p>
+        <pre class="kbd">curl -N -H "Accept: text/event-stream" -H "Authorization: Bearer gcai_xxx" \
+  -H "Content-Type: application/json" \
+  https://api.ssc.gc.ca/ai/v1/canchat/chat -d '{ "stream": true, "messages":[...]}'
+</pre>
+        <p class="muted">Event format: <span class="kbd">data: {"id":"…","delta":"…"}\n\n</span></p>
+      </article>
+
+      <!-- Limits -->
+      <article id="docs-limits" class="panel">
+        <h2>Request limits & policies</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Policy</th><th>Default</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td>Max payload</td><td>1 MB</td><td>Reduce prompt size; use RAG for large sources.</td></tr>
+              <tr><td>Timeout</td><td>60 s</td><td>Consider streaming for long generations.</td></tr>
+              <tr><td>Burst RPS</td><td>50/key</td><td>See quotas in <a href="#" data-route="gateway">Gateway</a>.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="muted">Defaults match the Governance policy registry (mock). Exceptions require approval.</p>
+      </article>
+
+      <!-- Errors -->
+      <article id="docs-errors" class="panel">
+        <h2>Errors (shape)</h2>
+        <pre class="kbd">{
+  "error": {
+    "type": "rate_limit_exceeded",
+    "message": "Quota exceeded. Retry after 60s.",
+    "request_id": "req_12345"
+  }
+}</pre>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Class</th><th>Typical cause</th><th>Action</th></tr></thead>
+            <tbody>
+              <tr><td>4xx</td><td>Validation, size limit, auth</td><td>Fix payload/headers; check key scope</td></tr>
+              <tr><td>429</td><td>Quota/RPS exceeded</td><td>Backoff or request more quota</td></tr>
+              <tr><td>5xx</td><td>Upstream/provider timeout</td><td>Retry with jitter; check <a href="#" data-route="usage">Usage</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <!-- Examples -->
+      <article id="docs-examples" class="panel">
+        <h2>Examples</h2>
+        <div class="grid" style="grid-template-columns:repeat(2,1fr);gap:12px">
+          <div class="card">
+            <div style="font-weight:700;margin-bottom:6px">cURL (chat)</div>
+            <pre class="kbd">curl -X POST https://api.ssc.gc.ca/ai/v1/canchat/chat \
+  -H "Authorization: Bearer $AI_KEY" -H "Content-Type: application/json" \
+  -d '{"model":"canchat-latest","messages":[{"role":"user","content":"Hi"}]}'</pre>
+          </div>
+          <div class="card">
+            <div style="font-weight:700;margin-bottom:6px">JavaScript (fetch)</div>
+            <pre class="kbd">const r = await fetch("/ai/v1/provider/chat", {
+  method:"POST",
+  headers:{ "Authorization":`Bearer ${AI_KEY}`, "Content-Type":"application/json" },
+  body: JSON.stringify({ model:"command-a", messages:[{role:"user",content:"Hello"}] })
+});
+const data = await r.json();</pre>
+          </div>
+          <div class="card">
+            <div style="font-weight:700;margin-bottom:6px">Python (requests)</div>
+            <pre class="kbd">import requests, os
+res = requests.post("https://api.ssc.gc.ca/ai/v1/canchat/chat",
+  headers={"Authorization":f"Bearer {os.getenv('AI_KEY')}",
+           "Content-Type":"application/json"},
+  json={"model":"canchat-latest","messages":[{"role":"user","content":"Salut"}]})
+print(res.json())</pre>
+          </div>
+          <div class="card">
+            <div style="font-weight:700;margin-bottom:6px">Embeddings</div>
+            <pre class="kbd">curl -X POST https://api.ssc.gc.ca/ai/v1/embeddings \
+  -H "Authorization: Bearer $AI_KEY" -H "Content-Type: application/json" \
+  -d '{"model":"canembed-001","input":["text one","text two"]}'</pre>
+          </div>
+        </div>
+      </article>
+
+      <!-- Patterns -->
+      <article id="docs-patterns" class="panel">
+        <h2>Patterns & tips</h2>
+        <ul>
+          <li><strong>RAG:</strong> chunk → embed → store → retrieve top-k → cite sources; consider re-ranking.</li>
+          <li><strong>Prompt hygiene:</strong> keep under size limits; use system prompts; log metadata not content.</li>
+          <li><strong>Retries:</strong> exponential backoff on 429/5xx; respect <span class="kbd">Retry-After</span>.</li>
+          <li><strong>Streaming UX:</strong> render partials; show token cursor; allow “stop generation”.</li>
+        </ul>
+      </article>
+
+      <!-- Compliance -->
+      <article id="docs-compliance" class="panel">
+        <h2>Compliance & data handling</h2>
+        <ul>
+          <li>By default, **PBMM** requests log metadata only; **Protected B (pilot)** may use a time-boxed secure vault (mock).</li>
+          <li>See <a href="#" data-route="governance">Governance</a> for policies, retention, and incident playbooks.</li>
+        </ul>
+      </article>
+
+      <!-- Changelog -->
+      <article id="docs-changelog" class="panel">
+        <h2>Changelog (mock)</h2>
+        <ul class="muted">
+          <li>2025-09-25 — Added streaming example and embeddings endpoint.</li>
+          <li>2025-09-18 — Initial Docs structure with quickstarts and error schema.</li>
+        </ul>
+      </article>
+    </div>
+
+    <!-- RIGHT: STICKY RAIL -->
+    <aside class="stack" style="gap:16px; position:sticky; top:72px; align-self:start">
+      <section class="panel">
+        <h3>Quickstarts</h3>
+        <div class="stack">
+          <a class="btn ghost" data-route="workspace">Open your Workspace</a>
+          <a class="btn ghost" data-route="myservices">Get an API key</a>
+          <a class="btn ghost" data-route="usage">View Usage</a>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h3>Status (mock)</h3>
+        <div class="kv">
+          <div class="k">CANChat</div><div class="badge"><span class="dot ok"></span>Healthy</div>
+          <div class="k">Provider Proxy</div><div class="badge"><span class="dot ok"></span>Healthy</div>
+        </div>
+        <p class="muted" style="margin-top:6px">See spikes in <a href="#" data-route="usage">Usage → Errors</a>.</p>
+      </section>
+
+      <section class="panel">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="#" data-route="requests">Open a request</a></li>
+          <li><a href="#" data-route="governance">Review policies</a></li>
+          <li><a href="#" data-route="gateway">Manage keys</a></li>
+        </ul>
+      </section>
+    </aside>
+  </div>
+</section>
+<!-- ==================== /DOCS ==================== -->
+
+  <footer>
+    <div class="wrap">
+      <div>© Government of Canada</div>
+      <div class="muted">Internal prototype — AI Marketplace</div>
+    </div>
+  </footer>
+<script defer src="app.js"></script>
+</body>
+</html>
